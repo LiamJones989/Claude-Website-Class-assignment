@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pale Hour Café</title>
+  <meta name="description" content="A café open from first light to last call. Coffee and pastries in the morning, plates in the afternoon, wine and small dishes at night.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-time="morning">
 
+  <header class="top">
+    <a class="logo" href="#top">Pale Hour</a>
+    <nav aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#story">Story</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="disc" aria-hidden="true"></div>
+      <h1><span>Pale</span><span>Hour</span></h1>
+      <div class="hero-foot">
+        <p class="lede">A café for the hours when the day is still deciding what to be.</p>
+        <a class="btn" href="#menu">See what's on now</a>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="menu-head">
+        <h2 id="menu-title">Morning</h2>
+        <div class="tabs" role="tablist" aria-label="Time of day">
+          <button role="tab" data-time="morning" aria-selected="true">Morning <small>7–11</small></button>
+          <button role="tab" data-time="afternoon" aria-selected="false">Afternoon <small>11–4</small></button>
+          <button role="tab" data-time="evening" aria-selected="false">Evening <small>4–late</small></button>
+        </div>
+      </div>
+      <p class="menu-note" id="menu-note"></p>
+      <ul class="items" id="items" role="tabpanel" aria-labelledby="menu-title"></ul>
+    </section>
+
+    <section class="story" id="story">
+      <h2>Open when the light is interesting</h2>
+      <div class="cols">
+        <p>We started Pale Hour because the best cafés we knew only got one hour right. Great at dawn, empty by two. Or lovely at night and sad with a cup of coffee at nine.</p>
+        <p>So the room changes with the day. The coffee is roasted weekly by a friend down the road, the bread comes out of our own oven before sunrise, and after four the lamps go on and the wine list comes out.</p>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <h2>Come by</h2>
+      <dl>
+        <div><dt>Address</dt><dd>214 Linden Street<br>Corner of Linden and Vale</dd></div>
+        <div><dt>Hours</dt><dd>Tuesday to Sunday<br>7 am until late</dd></div>
+        <div><dt>Say hello</dt><dd><a href="mailto:hello@palehour.example">hello@palehour.example</a></dd></div>
+      </dl>
+      <a class="btn" href="mailto:hello@palehour.example?subject=Table%20request">Request a table</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>Pale Hour Café</span>
+    <span>Closed Mondays, open the rest of the sky.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
