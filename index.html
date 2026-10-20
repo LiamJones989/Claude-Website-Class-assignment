@@ -3,33 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pale Hour Café</title>
-  <meta name="description" content="A café open from first light to last call. Coffee and pastries in the morning, plates in the afternoon, wine and small dishes at night.">
+  <title>pale hour — café, bakery and wine bar</title>
+  <meta name="description" content="A café open from first light to last call. Bread and coffee in the morning, plates in the afternoon, wine and small dishes at night.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-time="morning">
-
+  <div class="progress" id="progress" aria-hidden="true"></div>
   <header class="top">
-    <a class="logo" href="#top">Pale Hour</a>
+    <a class="logo" href="#top" aria-label="pale hour, home">pale h<i class="o"></i>ur</a>
     <nav aria-label="Main">
-      <a href="#menu">Menu</a>
-      <a href="#story">Story</a>
-      <a href="#visit">Visit</a>
+      <a href="#menu">Menu</a><a href="#story">Story</a><a href="#visit">Visit</a>
+      <button class="btn small" data-reserve>Reserve</button>
     </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet">
+      <span></span>
+      <span></span>
+    </button>
   </header>
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <a href="#menu">Menu</a>
+    <a href="#story">Story</a>
+    <a href="#regulars">Regulars</a>
+    <a href="#faq">Good to know</a>
+    <a href="#visit">Visit</a>
+    <button class="btn" data-reserve>Reserve a table</button>
+  </div>
+
 
   <main id="top">
     <section class="hero">
-      <div class="disc" aria-hidden="true"></div>
-      <h1><span>Pale</span><span>Hour</span></h1>
-      <div class="hero-foot">
-        <p class="lede">A café for the hours when the day is still deciding what to be.</p>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="disc-wrap" aria-hidden="true"><div class="disc"></div></div>
+      <h1 aria-label="pale hour"><span>pale</span><span>h<i class="o"></i>ur</span></h1>
+      <div class="scrub">
+      <label for="scrub">Drag the day</label>
+      <input type="range" id="scrub" min="0" max="2" step="1" value="0">
+      <output for="scrub" id="scrub-out">Morning</output>
+    </div>
+    <div class="hero-foot">
+        <p class="lede">A café, bakery and wine bar for the hours when the day is still deciding what to be.</p>
+        <p class="status" id="status" aria-live="polite"></p>
         <a class="btn" href="#menu">See what's on now</a>
       </div>
     </section>
+
+    <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
 
     <section class="menu" id="menu">
       <div class="menu-head">
@@ -41,14 +62,67 @@
         </div>
       </div>
       <p class="menu-note" id="menu-note"></p>
+      <div class="chips" id="chips" role="group" aria-label="Filter the menu">
+        <button type="button" data-f="all" aria-pressed="true">Everything</button>
+        <button type="button" data-f="veg" aria-pressed="false">Vegetarian</button>
+      </div>
       <ul class="items" id="items" role="tabpanel" aria-labelledby="menu-title"></ul>
     </section>
 
     <section class="story" id="story">
       <h2>Open when the light is interesting</h2>
       <div class="cols">
-        <p>We started Pale Hour because the best cafés we knew only got one hour right. Great at dawn, empty by two. Or lovely at night and sad with a cup of coffee at nine.</p>
+        <p>We started pale hour because the best cafés we knew only got one hour right. Great at dawn, empty by two. Or lovely at night and sad with a cup of coffee at nine.</p>
         <p>So the room changes with the day. The coffee is roasted weekly by a friend down the road, the bread comes out of our own oven before sunrise, and after four the lamps go on and the wine list comes out.</p>
+      </div>
+      <ol class="day">
+        <li><b>6 am</b><span>First loaf out of the oven</span></li>
+        <li><b>11 am</b><span>Kitchen switches to plates</span></li>
+        <li><b>4 pm</b><span>Lamps on, wine list out</span></li>
+      </ol>
+    </section>
+
+    <section class="regulars" id="regulars">
+      <h2>Regulars say</h2>
+      <div class="quotes">
+        <figure>
+          <blockquote>I come for the cardamom bun and stay because nobody rushes me.</blockquote>
+          <figcaption>Mara, most mornings around 7:40</figcaption>
+        </figure>
+        <figure>
+          <blockquote>Lunch was so good I came back for dinner, and it felt like a different café.</blockquote>
+          <figcaption>Daniel, tried both in one day</figcaption>
+        </figure>
+        <figure>
+          <blockquote>The only place I know where the lighting actually matches the menu.</blockquote>
+          <figcaption>Priya, Friday evenings</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2>Good to know</h2>
+      <div class="qa">
+        <details>
+          <summary>Do you take walk-ins?</summary>
+          <p>Always. Tables for parties of five or more are easier with a reservation, especially after four.</p>
+        </details>
+        <details>
+          <summary>Is there vegetarian and vegan food?</summary>
+          <p>Most of the menu is vegetarian. Use the filter above to see it. Ask us about vegan swaps, we're happy to adjust.</p>
+        </details>
+        <details>
+          <summary>Can I bring my laptop?</summary>
+          <p>Before 11 am, yes. After that we ask you to give the tables back to lunch.</p>
+        </details>
+        <details>
+          <summary>Do you do takeaway?</summary>
+          <p>Bread, pastries and coffee, any time we're open. Plates and wine stay in the room.</p>
+        </details>
+        <details>
+          <summary>Is the space step-free?</summary>
+          <p>Yes. The entrance on Linden Street has no steps, and there's an accessible restroom.</p>
+        </details>
       </div>
     </section>
 
@@ -59,15 +133,47 @@
         <div><dt>Hours</dt><dd>Tuesday to Sunday<br>7 am until late</dd></div>
         <div><dt>Say hello</dt><dd><a href="mailto:hello@palehour.example">hello@palehour.example</a></dd></div>
       </dl>
-      <a class="btn" href="mailto:hello@palehour.example?subject=Table%20request">Request a table</a>
+      <button class="btn" data-reserve>Reserve a table</button>
+    </section>
+
+    <section class="news" id="news">
+      <h2>Notes from the oven</h2>
+      <p>One short email a month: what's new on the menu and when the next bake is.</p>
+      <form id="nform" novalidate>
+        <input type="email" id="nemail" name="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p class="nmsg" id="nmsg" role="status"></p>
     </section>
   </main>
 
   <footer>
-    <span>Pale Hour Café</span>
-    <span>Closed Mondays, open the rest of the sky.</span>
+    <div class="big" aria-hidden="true">pale h<i class="o"></i>ur</div>
+    <nav class="social" aria-label="Social">
+      <a href="#">Instagram</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Press kit</a>
+    </nav>
+    <div class="fine"><span>© pale hour café</span><span>Closed Mondays, open the rest of the sky.</span></div>
   </footer>
 
+  <dialog id="reserve" aria-labelledby="r-title">
+    <form method="dialog" id="rform">
+      <h3 id="r-title">Reserve a table</h3>
+      <label>Name <input name="name" required autocomplete="name"></label>
+      <div class="row">
+        <label>Date <input type="date" name="date" id="date" required></label>
+        <label>Time <select name="time"><option>8:00 am</option><option>10:00 am</option><option>12:30 pm</option><option>3:00 pm</option><option selected>6:30 pm</option><option>8:30 pm</option></select></label>
+        <label>Guests <input type="number" name="guests" min="1" max="10" value="2" required></label>
+      </div>
+      <p class="confirm" id="confirm" hidden></p>
+      <div class="row end">
+        <button type="button" class="ghost" id="close">Close</button>
+        <button type="submit" class="btn" id="send">Request table</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>
 </html>
